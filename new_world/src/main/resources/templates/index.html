@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xml:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Inicio</h1>
+<p th:text="${mensaje}"></p>
+<p th:text="${hello}"></p>
+<br/>
+<div th:if="${users != null and !users.empty}">
+    <table>
+        <thead>
+        <th>id</th>
+        <th>Nombres</th>
+        <th>Apellidos</th>
+        <th>Activo</th>
+        </thead>
+        <tbody>
+        <tr th:each="users : ${user}">
+            <td th:text="${user.id}">Show name</td>
+            <td th:text="${user.nombres}">Show lastname</td>
+            <td th:text="${user.apellidos}">Show email</td>
+            <td th:text="${user.activo}">Show email</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<div th:if="${users == null or users.empty}">
+    <h3>No hay personas registradas</h3>
+</div>
+
+
+</body>
+</html>
